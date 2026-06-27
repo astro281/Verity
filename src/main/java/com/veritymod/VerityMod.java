@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -32,7 +31,7 @@ public class VerityMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		FabricDefaultAttributeRegistry.register(VERITY, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0));
+		FabricDefaultAttributeRegistry.register(VERITY, MobEntity.createMobAttributes());
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal("verity")

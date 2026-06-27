@@ -3,7 +3,6 @@ package com.veritymod;
 import com.veritymod.entity.VerityEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Registry;
@@ -23,7 +22,7 @@ public class VerityMod implements ModInitializer {
 	public static final EntityType<VerityEntity> VERITY = Registry.register(
 			BuiltInRegistries.ENTITY_TYPE,
 			ResourceLocation.fromNamespaceAndPath(MOD_ID, "verity"),
-			FabricEntityTypeBuilder.create(MobCategory.CREATURE, VerityEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+			EntityType.Builder.of(VerityEntity::new, MobCategory.CREATURE).dimensions(0.75f, 0.75f).build("verity")
 	);
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
